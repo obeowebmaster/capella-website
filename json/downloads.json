@@ -6,8 +6,14 @@
       "dropin": { "text": "Drop-in", "icon": "fa fa-download" }, 
       "updateSite": { "text": "Update Site", "icon": "fa fa-download" },
       "userManual": { "text": "User manual", "icon": "fa fa-book" },
-      "notes": { "text": "Installation notes" },
-      "installNotes": { "text": "Download and Installation", "icon": "fa fa-level-down", "target":"_expand" },
+      "url": { "text": "url" },
+      "url2": { "text": "url2" },
+      "type": { "text": "type" },
+      "notes": { "text": "Installation notes" }, 
+      "installNotes": { "text": "Notes", "icon": "fa fa-level-down", "target":"_expand", "target-type": "embed" },
+      "releasesGithub": { "text": "Download and Installation", "icon": "fa fa-level-down", "target":"_expand", "target-type": "json" },
+      "releasesGitlab": { "text": "Download and Installation", "icon": "fa fa-level-down", "target":"_expand", "target-type": "jsonLab" },
+      "userManualMd": { "text": "User manual", "icon": "fa fa-level-down", "target":"_expand", "target-type": "md" },
       "product": { "text": "Product", "icon": "fa fa-download" },
       "installAddon": { "text": "Installation procedure", "icon": "fa fa-external-link-square", "target":"_blank" },
       "dandi": { "text": "Download and Installation", "icon": "fa fa-download" },
@@ -67,8 +73,12 @@
       "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
       "description": "<p>This addon is a System to SubSystem Transition. It initializes a new Capella project from existing model. This transition extracts suitable model information from a selected Capella Component and manage top/down update propagation.</p><p>The automated and iterative transition between system and subsystems is a great help for managing several levels of engineering. The contract and model of the subsystems are computed from the system. Ideally, subsystems stakeholders are involved in co-engineering activities at system level before the transition occurs.</p>",
       "download": { 
-        "release": "https://github.com/eclipse/capella-sss-transition/releases", 
-        "userManual": "https://github.com/eclipse/capella-sss-transition/wiki",
+        "releasesGithub": {
+          "url": "https://api.github.com/repos/eclipse/capella-sss-transition/releases"
+        },
+        "userManualMd": {
+          "url": "https://raw.githubusercontent.com/wiki/eclipse/capella-sss-transition/Documentation.md"
+        },
         "installAddon": "https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility"
       }
     },
@@ -81,8 +91,9 @@
       "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
       "description": "<p>This addon enables the end-user to generate an HTML website from a Capella project (e.g: <a href='resources/doc/IFE_XHTML_DocGen_5.0.0_for_capella_5.0.0/output/index.html' target='_blank'>In-Flight Entertainment (IFE)</a>).</p><p>Sharing models with all stakeholders is essential in model-based systems engineering. Publishing and sharing HTML versions of models helps make models THE reference of all engineering activities.</p><p>For more information, please install the addon within Capella and check online help then dedicated section for the addon.</p>",
       "download": { 
-        "dropin": "https://download.eclipse.org/capella/addons/xhtmldocgen/dropins/release/5.0.0/CapellaXHTMLDocGen-5.0.0.202012170838-Capella-5.0.0-dropins.zip",
-        "updateSite": "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/release/5.0.0/",
+        "releasesGithub": {
+          "url": "https://api.github.com/repos/eclipse/capella-xhtml-docgen/releases"
+        },
         "installAddon": "https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility"
       }
     }, 
@@ -95,8 +106,12 @@
       "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
       "description": "<p>Filtering is an addon to filter capella models. It provides several capabilities:</p><ul><li>Definition of filtering criteria to be associated with model elements</li><li>Definition of results containing criteria</li><li>Visualization of criteria and results in diagrams</li><li>Creation of filtered models</li></ul>",
       "download": { 
-        "release": "https://github.com/eclipse/capella-filtering/releases", 
-        "userManual": "https://github.com/eclipse/capella-filtering/wiki",
+        "releasesGithub": {
+          "url": "https://api.github.com/repos/eclipse/capella-filtering/releases"
+        },
+        "userManualMd": {
+          "url": "https://raw.githubusercontent.com/wiki/eclipse/capella-filtering/Home.md"
+        },
         "installAddon": "https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility"
       }
     }, 
@@ -109,16 +124,13 @@
       "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
       "description": "<p>This add-on allows end-users to easily define their own specific properties on Arcadia concepts, value these properties for each elements, and automatically change the graphical aspect of model elements in diagrams.</p><p>This add-on is developed by a Thales business unit (DMS-FR) and is distributed under the Eclipse Public License. It is not hosted by the Eclipse Foundation and it is not developped under the Eclipse Development Process.</p>",
       "download": {
+        "releasesGitlab": {
+          "url": [ 
+                {"name": "PVMT", "url":"https://raw.githubusercontent.com/wiki/eclipse/capella/metadata/capella-pvmt.json"}, 
+                {"name": "DS", "url":"https://raw.githubusercontent.com/wiki/eclipse/capella/metadata/capella-ds.json"} ]
+        },
         "installNotes": {
-          "notes": "<h4>Materials description</h4><ul><li><b>PVMT (Property Values Management Tools)</b>:<br/>Provides the core mechanisms to enrich Capella elements with additional properties.</li><li><b>DS (DiagramStyler)</b>:<br/>The companion addon to PVMT to take into account these additional properties and customize the rendering of the diagrams. </li></ul><p>To install these add-ons, just follow the usual <a href=\"https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility\">Installation procedure</a> for both addons (PVMT and DS)</p><h4>Notice</h4><p>Please note that using DiagramStyler will create a dependence of all models in your environment towards this add-on.<br/>To remove this dependence, you will have to use the <a href=\"https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/First%20steps%20with%20Capella/3.6.%20How%20to%20detach%20viewpoints.mediawiki\">Capella Model Detachment feature</a>.</p>",
-          "dropin": [
-            { "name": "PVMT", "url": "https://artifactory.thalesdigital.io/artifactory/mvn-public/com/thalesgroup/vpd/property/com.thalesgroup.vpd.property.repository/50.5.1/com.thalesgroup.vpd.property.repository-50.5.1-dropins.zip" },
-            { "name": "DS", "url": "https://artifactory.thalesdigital.io/artifactory/mvn-public/com/thalesgroup/mde/capella/diagramstyler/com.thalesgroup.mde.capella.diagramstyler.repository/50.3.1/com.thalesgroup.mde.capella.diagramstyler.repository-50.3.1-dropins.zip" }
-           ],
-          "updateSite": [ 
-            { "name": "PVMT", "url": "https://artifactory.thalesdigital.io/artifactory/mvn-public/com/thalesgroup/vpd/property/com.thalesgroup.vpd.property.repository/50.5.1/com.thalesgroup.vpd.property.repository-50.5.1.zip" },
-            { "name": "DS", "url": "https://artifactory.thalesdigital.io/artifactory/mvn-public/com/thalesgroup/mde/capella/diagramstyler/com.thalesgroup.mde.capella.diagramstyler.repository/50.3.1/com.thalesgroup.mde.capella.diagramstyler.repository-50.3.1.zip" }
-           ]
+          "notes": "<h4>Materials description</h4><ul><li><b>PVMT (Property Values Management Tools)</b>:<br/>Provides the core mechanisms to enrich Capella elements with additional properties.</li><li><b>DS (DiagramStyler)</b>:<br/>The companion addon to PVMT to take into account these additional properties and customize the rendering of the diagrams. </li></ul><p>To install these add-ons, just follow the usual <a href=\"https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility\">Installation procedure</a> for both addons (PVMT and DS)</p><h4>Notice</h4><p>Please note that using DiagramStyler will create a dependence of all models in your environment towards this add-on.<br/>To remove this dependence, you will have to use the <a href=\"https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/First%20steps%20with%20Capella/3.6.%20How%20to%20detach%20viewpoints.mediawiki\">Capella Model Detachment feature</a>.</p>"
         }
       }
     }, 
@@ -266,56 +278,31 @@
        "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
        "description": "<p>This add-on allows importing a set of requirements from a ReqIF file (Requirement Interchange Format / OMG Standard).</p><p>The import is iterative (diff/merge based) and a set of tools is provided to link the model elements to the requirements.</p><p>For more information, please install the addon within Capella and check online help then dedicated section for the addon.</p>",
        "download": { 
-        "release": "https://github.com/eclipse/capella-requirements-vp/releases", 
-        "userManual": "https://github.com/eclipse/capella-requirements-vp/wiki",
+        "releasesGithub": {
+          "url": "https://api.github.com/repos/eclipse/capella-requirements-vp/releases"
+        },
+        "userManualMd": {
+          "url": "https://raw.githubusercontent.com/wiki/eclipse/capella-requirements-vp/Home.md"
+        },
         "installAddon": "https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility"
        },
        "tags":["requirements"]
     }, 
-    { "name":"Basic Mass",
+    { "name":"Basic Viewpoints <small>(Mass, Price, Performance)</small>",
       "showOnMainPage": true,
-      "isViewpoint": true,
-      "isSample": true,
-      "key":"BASICMASS",
-      "licence":"EPL",
-      "compatibleWithCurrentVersion": true,
-      "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
-      "description": "<p>The Mass viewpoint enables to simply describe the non-functional aspect of mass in Capella. </p><p>For more information, please visit <a href='https://wiki.eclipse.org/Capella/Viewpoints/BasicMass'>wiki page</a>.</p>",
-      "download": { 
-        "dropin": "https://download.eclipse.org/capella/addons/basicmass/dropins/releases/5.0.0/BasicMass-dropins-5.0.0.202012150812.zip", 
-        "updateSite": "https://download.eclipse.org/capella/addons/basicmass/updates/releases/5.0.0/",
-        "installAddon": "https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility"
-      }
-    },
-    { "name":"Basic Price",
-      "showOnMainPage": true,
-      "isViewpoint": true,
+      "isViewpoint": false,
       "isSample": true,
       "key":"BASICPRICE",
       "licence":"EPL",
       "compatibleWithCurrentVersion": true,
       "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
-      "description": "<p>The Price viewpoint enables to simply describe the non-functional aspect of price in Capella.</p><p>For more information, please visit <a href='https://wiki.eclipse.org/Capella/Viewpoints/BasicPrice'>wiki page</a>.</p>",
+      "description": "<p>The Mass viewpoint enables to simply describe the non-functional aspect of mass in Capella. </p><p>For more information, please visit <a href='https://wiki.eclipse.org/Capella/Viewpoints/BasicMass'>wiki page</a>.</p><p>The Performance viewpoint enables to simply describe the non-functional aspect of performance in Capella.</p><p>For more information, please visit <a href='https://wiki.eclipse.org/Capella/Viewpoints/BasicPerformance'>wiki page</a>.</p><p>The Price viewpoint enables to simply describe the non-functional aspect of price in Capella.</p><p>For more information, please visit <a href='https://wiki.eclipse.org/Capella/Viewpoints/BasicPrice'>wiki page</a>.</p>",
       "download": { 
-        "dropin": "https://download.eclipse.org/capella/addons/basicprice/dropins/releases/5.0.0/BasicPrice-dropins-5.0.0.202012150812.zip",
-        "updateSite": "https://download.eclipse.org/capella/addons/basicprice/updates/releases/5.0.0/",
+        "releasesGithub": {
+          "url": "https://api.github.com/repos/eclipse/capella-basic-vp/releases"
+        },
         "installAddon": "https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility"
-      }
-    },
-    { "name":"Basic Performance",
-      "showOnMainPage": true,
-      "isViewpoint": true,
-      "isSample": true,
-      "key":"BASICPERFO",
-      "licence":"EPL",
-      "compatibleWithCurrentVersion": true,
-      "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
-      "description": "<p>The Performance viewpoint enables to simply describe the non-functional aspect of performance in Capella.</p><p>For more information, please visit <a href='https://wiki.eclipse.org/Capella/Viewpoints/BasicPerformance'>wiki page</a>.</p>",
-      "download": { 
-        "dropin": "https://download.eclipse.org/capella/addons/basicperfo/dropins/releases/5.0.0/BasicPerfo-dropins-5.0.0.202012150812.zip", 
-        "updateSite": "https://download.eclipse.org/capella/addons/basicperfo/updates/releases/5.0.0/",
-        "installAddon": "https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility"
-      }
+       }
     },
     { "name":"Capella-TASTE-Plugin",
       "key":"TASTE",

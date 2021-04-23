@@ -60,6 +60,7 @@
         <script src="js/wow.min.js"></script>
         <!-- template main js -->
         <script src="js/main.js"></script>
+        <script src="js/downloads.js"></script>
     </head>
     <body ng-app="capella" data-deferred-cloak>
     	<!--
@@ -250,94 +251,9 @@
             </div>
 		</section> <!-- #capellaResources -->
 
-			<script>
-
-                    function updateMainLink(mainLinkId, data, product) {
-                        let mainId = "windows";
-						let title = "Get {0} {1} for {2} {3}".format(product.name, product.version, data.lang[mainId].text, data.lang["main"].text);
-                        let mainLink = '<p><a class="wow fadeInUp animated btn btn-default animated" data-wow-delay=".6s" href="{0}" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;" onClick="ga(\'send\', \'event\', \'{1}\', \'{2}\', \'{3}\');"><i class="fa fa-download" aria-hidden="true"></i> {4}</a></p>'.format(product.links[mainId].main, product.key, data.versionBranch, data.lang[mainId].key, title);
-                        document.getElementById(mainLinkId).innerHTML += mainLink;
-                    }
-
-                    function updatePlatformLinks(platformLinksId, data, product) {
-                        let lis = Object.keys(product.links).map(function (k) {
-                            let link = product.links[k];
-                            let linkss = Object.keys(link).map(function (key) { return '<a href="{0}" onClick="ga(\'send\', \'event\', \'{1}\', \'{2}\', \'{3}\');">{4}</a>'.format(link[key], product.key, data.versionBranch, data.lang[k].key, data.lang[key].text);  }).join(" - ");
-                            return '<p class="txt_white wow fadeInUp animated" data-wow-delay=".4s"><i class="{0}" aria-hidden="true"></i> {1}<br/>{2}</p>'.format(data.lang[k].icon, data.lang[k].text, linkss);
-                        }).join("");
-                        document.getElementById(platformLinksId).innerHTML += lis;
-                    }
-
-                    function createKeysLinks(data, addon, download, icons) {
-							let keys = Object.keys(download).filter(function(x) { return x != "notes" });
-							let links = keys.map(function(k) {
-							let icon = icons == undefined && data.lang[k].icon ? '<i class="pl-2 {0}" aria-hidden="true"></i>'.format(data.lang[k].icon) : "";
-							if (data.lang[k].target == "_expand") {
-								return '<a data-toggle="collapse" data-target="#collapse-notes-{3}">{4}{5}</a>'.format(download[k], data.lang[k].target, data.versionBranch, addon.key, data.lang[k].text, icon);
-							} else if (Array.isArray(download[k])) {
-								let value = download[k];
-								return data.lang[k].text + "s"+ icon + " (" + value.map(function(x) { return '<a href="{0}" onClick="ga(\'send\', \'event\', \'Capella\', \'{1}\', \'{2}\');">{3}</a>'.format(x.url, data.versionBranch, addon.key, x.name) }).join(" + ")+")";
-							}
-							return '<a href="{0}" {1} onClick="ga(\'send\', \'event\', \'Capella\', \'{2}\', \'{3}\');">{4}{5}</a>'.format(download[k], data.lang[k].target == undefined ? "" : 'target="'+data.lang[k].target+'}"', data.versionBranch, addon.key, data.lang[k].text, icon);
-						 }).join(" - ");
-						 return links;
-                    }
-                  
-                    function updateAddonLinks(data) {
-                        let addons = "";
-                        let sample = "";
-                        let filteredAddons = data.addons.filter(function (a) { return a.showOnMainPage; });
-                        for (i in filteredAddons) {
-                            let addon = filteredAddons[i];
-                            let keys = Object.keys(addon.download);
-                            let links = createKeysLinks(data, addon, addon.download, false);
-					        let header = [];
-							if (addon.contact) {
-								header.push('Contact: '+addon.contact);
-							}
-							if (addon.licence) {
-								header.push('License: '+addon.licence);
-							}
-							header=header.join(" - ");
-							let information = '<p><i>{0}</i></p><p>{1}</p>'.format(header, addon.description);
-							
-							let compatible = addon.compatibleWithCurrentVersion === false ? '<button role="button" class="fa fa-exclamation-triangle btn-link btn-xs alert-compatibility" data-toggle="tooltip" data-placement="bottom" title="{0}" ></button>'.format(data.lang.compatibility.text) : "";
-							let information2 = '<button role="button" class="fa fa-info-circle btn-link btn-xs " data-toggle="popover" data-trigger="focus" data-placement="bottom" title="{0}" data-content="{1}"></button>'.format(addon.name, information);
-							
-							let addonName = addon.isViewpoint ? addon.name + " Viewpoint" : addon.name;
-                            
-                            let sections = keys.filter(function(k) { return data.lang[k].target == "_expand" }).map(function(k) {
-                                let div = '<div class="collapse notes-section" id="collapse-notes-'+addon.key+'"><h3>'+data.lang[k].text+'</h3>'+createKeysLinks(data, addon, addon.download[k])+addon.download[k]["notes"]+'</div>';
-							    return div;
-                            }).join("");
-                            
-                            let result = '<p class="wow fadeInUp animated" data-wow-delay=".3s">{0} {1}<br/><span class="small pl-2">{2}{3}</span></p>{4}<br/>'.format(addonName, information2, compatible, links, sections);
-
-                            if (addon.isSample) {
-                                sample += result;
-                            } else {
-                                addons += result;
-                            }
-                      }
-                      document.getElementById("capella-addons").innerHTML = addons;
-                      document.getElementById("capella-sample").innerHTML = sample;
-					  
-					  $('[data-toggle="popover"]').popover( { html: true, container: 'body' });
-					  $('[data-toggle="tooltip"]').tooltip();
-                    }
-
-                   $.getJSON('json/downloads.json', function(data) {
-
-                        updateMainLink("capellaMainLink", data, data.capella);
-                        updatePlatformLinks("capellaPlatformLinks", data, data.capella);
-
-                        updateMainLink("capellaStudioMainLink", data, data.capellaStudio);
-                        updatePlatformLinks("capellaStudioPlatformLinks", data, data.capellaStudio);
-
-                        updateAddonLinks(data);
-
-                  });
-              </script>
+		<script>
+		    downloads.proceedMainJson();
+		</script>
 
          <!-- Need Help Section -->
         <section class="text-center bg_lightest_grey">
