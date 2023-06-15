@@ -15,13 +15,20 @@ h3{
 .accordion h3 {
   margin-top: 20px !important;
 }
+
 p {
   font-family: 'LatoWeb', sans-serif;
   line-height: 22px;
   font-size: 16px;
 }
-ul li {
-  list-style: square;
+ul {
+  list-style-type: disc;
+}
+ul ul { 
+  list-style-type: circle;
+}
+li {
+  margin-bottom:5px;
 }
 [deferred-cloak], [data-deferred-cloak], [x-deferred-cloak], .deferred-cloak {
     display: none;
@@ -258,6 +265,7 @@ h2.icon{
 .event{
   background: url('../images/banners/banner_event.jpg') no-repeat 50%;
   z-index:2;
+  padding: 60px 0 60px 0;
 }
 .getstarted{
   background: url('../images/banners/banner_getstarted.jpg') no-repeat 50%;
@@ -765,7 +773,7 @@ article {
     text-align: left;
 }
 .nav-tabs > li > a {
-    background: #dedede;
+    background: #999999b8;
     border: 1px solid transparent;
     border-bottom: none;
     padding: 10px 20px;
@@ -779,6 +787,9 @@ article {
     border: 1px solid #eeeeee;
     border-bottom: none;
     color: #002b3c;
+}
+.nav-tabs > li.active  {
+    font-weight:600;
 }
 .nav-tabs > li > a {
   text-transform: uppercase;
@@ -1058,4 +1069,10 @@ color: #a94442;
 .notes-section h1, .notes-section h2, .notes-section h3, .notes-section h4, .notes-section h5, .notes-section h6 {
   margin-top: 6px !important;
   color: #292253;
+}
+.case-study {
+  margin-bottom: 40px
+}
+.case-study a {
+  margin-top: 10px
 }

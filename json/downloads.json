@@ -1,6 +1,6 @@
 {
   "$schema": "./download.schema.json",
-  "versionBranch": "6.0",
+  "versionBranch": "6.1",
   "lang": { 
       "release": { "text": "Download", "icon": "fa fa-download" }, 
       "dropin": { "text": "Drop-in", "icon": "fa fa-download" }, 
@@ -16,38 +16,41 @@
       "linux": { "text": "Linux*", "icon": "fa fa-linux", "key":"LINUX" },
       "mac": { "text": "Mac Cocoa*", "icon": "fa fa-apple", "key":"MAC" },
       "main": { "text": "64-bit" },
+      "aarch64": { "text": "aarch64" },
       "mirror": { "text": "Mirror" },
       "compatibility": { "text": "This addon is not yet compatible with the new Capella version." }
     },
   "capella": {
     "name": "Capella",
     "key": "Capella",
-    "version": "6.0",
+    "version": "6.1",
     "links": {
       "windows": {
-        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/core/products/releases/6.0.0/capella-6.0.0.202209090800-win32-win32-x86_64.zip"
+        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/core/products/releases/6.1.0/capella-6.1.0.202303291413-win32-win32-x86_64.zip"
        },
       "linux": { 
-        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/core/products/releases/6.0.0/capella-6.0.0.202209090800-linux-gtk-x86_64.tar.gz"
+        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/core/products/releases/6.1.0/capella-6.1.0.202303291413-linux-gtk-x86_64.tar.gz",
+        "aarch64": "https://www.eclipse.org/downloads/download.php?file=/capella/core/products/releases/6.1.0/capella-6.1.0.202303291413-linux-gtk-aarch64.tar.gz"
        },
       "mac": { 
-        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/core/products/releases/6.0.0/capella-6.0.0.202209090800-macosx-cocoa-x86_64.tar.gz"
+        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/core/products/releases/6.1.0/capella-6.1.0.202303291413-macosx-cocoa-x86_64.tar.gz",
+        "aarch64": "https://www.eclipse.org/downloads/download.php?file=/capella/core/products/releases/6.1.0/capella-6.1.0.202303291413-macosx-cocoa-aarch64.tar.gz"
        }
     }
   },
   "capellaStudio": {
     "name": "Capella Studio",
     "key": "CapellaStudio",
-    "version": "6.0",
+    "version": "6.1",
     "links": {
       "windows": {
-        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/studio/products/releases/6.0.0/capella-studio-6.0.0.202209121340-win32.win32.x86_64.zip"
+        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/studio/products/releases/6.1.0/capella-studio-6.1.0.202303291548-win32.win32.x86_64.zip"
       },
       "linux": { 
-        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/studio/products/releases/6.0.0/capella-studio-6.0.0.202209121340-linux.gtk.x86_64.zip"
+        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/studio/products/releases/6.1.0/capella-studio-6.1.0.202303291548-linux.gtk.x86_64.zip"
       },
       "mac": { 
-        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/studio/products/releases/6.0.0/capella-studio-6.0.0.202209121340-macosx.cocoa.x86_64.zip"
+        "main": "https://www.eclipse.org/downloads/download.php?file=/capella/studio/products/releases/6.1.0/capella-studio-6.1.0.202303291548-macosx.cocoa.x86_64.zip"
       }
     }
   },
@@ -96,6 +99,20 @@
         "installAddon": "https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility"
       }
     }, 
+    { "name":"DARC Viewpoint (Cybersecurity Assets & Threats Modeling analysis)",
+      "showOnMainPage": true,
+      "key":"DARC",
+      "fragment":"darc",
+      "licence":"EPL",
+      "compatibleWithCurrentVersion": true,
+      "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
+      "description": "<p>Capella Darc add-on is to support effective co-engineering between systems and cybersecurity engineers teams when performing the following tasks:</p><ul><li>Identify assets and trust boundaries</li><li>Identify threats</li><li>Characterize security needs</li></ul>",
+      "download": { 
+        "release": "https://github.com/eclipse/capella-cybersecurity/releases", 
+        "userManual": "https://github.com/eclipse/capella-cybersecurity/wiki",
+        "installAddon": "https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility"
+      }
+    }, 
     { "name":"Property Values Management Tools (PVMT)",
       "showOnMainPage": true,
       "key":"PVMT",
@@ -107,14 +124,7 @@
       "download": {
         "installNotes": {
           "notes": "<h4>Materials description</h4><ul><li><b>PVMT (Property Values Management Tools)</b>:<br/>Provides the core mechanisms to enrich Capella elements with additional properties.</li><li><b>DS (DiagramStyler)</b>:<br/>The companion addon to PVMT to take into account these additional properties and customize the rendering of the diagrams. </li></ul><p>To install these add-ons, just follow the usual <a href=\"https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility\">Installation procedure</a> for both addons (PVMT and DS)</p><h4>Notice</h4><p>Please note that using DiagramStyler will create a dependence of all models in your environment towards this add-on.<br/>To remove this dependence, you will have to use the <a href=\"https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/First%20steps%20with%20Capella/3.6.%20How%20to%20detach%20viewpoints.mediawiki\">Capella Model Detachment feature</a>.</p><h4>Older releases</h4><i><a href='https://github.com/eclipse/capella/wiki/PVMT'>(download older releases)</a></i>",
-          "dropin": [
-            { "name": "PVMT", "url": "https://artifactory.thalesdigital.io/artifactory/mvn-public/com/thalesgroup/vpd/property/com.thalesgroup.vpd.property.repository/60.6.0/com.thalesgroup.vpd.property.repository-60.6.0-dropins.zip" },
-            { "name": "DS", "url": "https://artifactory.thalesdigital.io/artifactory/mvn-public/com/thalesgroup/mde/capella/diagramstyler/com.thalesgroup.mde.capella.diagramstyler.repository/60.3.1/com.thalesgroup.mde.capella.diagramstyler.repository-60.3.1-dropins.zip" }
-           ],
-          "updateSite": [ 
-            { "name": "PVMT", "url": "https://artifactory.thalesdigital.io/artifactory/mvn-public/com/thalesgroup/vpd/property/com.thalesgroup.vpd.property.repository/60.6.0/com.thalesgroup.vpd.property.repository-60.6.0.zip" },
-            { "name": "DS", "url": "https://artifactory.thalesdigital.io/artifactory/mvn-public/com/thalesgroup/mde/capella/diagramstyler/com.thalesgroup.mde.capella.diagramstyler.repository/60.3.1/com.thalesgroup.mde.capella.diagramstyler.repository-60.3.1.zip" }
-           ]
+          "release": "https://github.com/eclipse/capella/wiki/PVMT"
         }
       }
     }, 
@@ -321,7 +331,7 @@
       "licence":"EPL",
       "compatibleWithCurrentVersion": true,
       "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
-      "description": "<p>The Mass viewpoint enables to simply describe the non-functional aspect of mass in Capella. </p><p>For more information, please visit <a href='https://wiki.eclipse.org/Capella/Viewpoints/BasicMass'>wiki page</a>.</p>",
+      "description": "<p>The Mass viewpoint enables to simply describe the non-functional aspect of mass in Capella. </p><p>For more information, please visit <a href='https://github.com/eclipse/capella-basic-vp/wiki/Basic-Mass-Viewpoint'>wiki page</a>.</p>",
       "download": { 
         "release": "https://github.com/eclipse/capella-basic-vp/releases",
         "userManual": "https://github.com/eclipse/capella-basic-vp/wiki/Basic-Mass-Viewpoint",
@@ -337,7 +347,7 @@
       "licence":"EPL",
       "compatibleWithCurrentVersion": true,
       "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
-      "description": "<p>The Price viewpoint enables to simply describe the non-functional aspect of price in Capella.</p><p>For more information, please visit <a href='https://wiki.eclipse.org/Capella/Viewpoints/BasicPrice'>wiki page</a>.</p>",
+      "description": "<p>The Price viewpoint enables to simply describe the non-functional aspect of price in Capella.</p><p>For more information, please visit <a href='https://github.com/eclipse/capella-basic-vp/wiki/Basic-Price-Viewpoint'>wiki page</a>.</p>",
       "download": { 
         "release": "https://github.com/eclipse/capella-basic-vp/releases",
         "userManual": "https://github.com/eclipse/capella-basic-vp/wiki/Basic-Price-Viewpoint",
@@ -353,13 +363,26 @@
       "licence":"EPL",
       "compatibleWithCurrentVersion": true,
       "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a>",
-      "description": "<p>The Performance viewpoint enables to simply describe the non-functional aspect of performance in Capella.</p><p>For more information, please visit <a href='https://wiki.eclipse.org/Capella/Viewpoints/BasicPerformance'>wiki page</a>.</p>",
+      "description": "<p>The Performance viewpoint enables to simply describe the non-functional aspect of performance in Capella.</p><p>For more information, please visit <a href='https://github.com/eclipse/capella-basic-vp/wiki/Basic-Performance-Viewpoint'>wiki page</a>.</p>",
       "download": { 
         "release": "https://github.com/eclipse/capella-basic-vp/releases",
         "userManual": "https://github.com/eclipse/capella-basic-vp/wiki/Basic-Performance-Viewpoint",
         "installAddon": "https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/Installation%20Guide/How%20to%20install%20Capella%20and%20Addons.mediawiki#Configuration_and_Extensibility"
       },
       "tags":["viewpoint"]
+    },
+    { "name":"Python4Capella",
+      "key":"PYTHON",
+      "isLabs": false,
+      "licence":"EPL",
+      "compatibleWithCurrentVersion": true,
+      "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a> &amp; <a href='https://www.obeosoft.com/contact' target='_blank'>Obeo</a>",
+      "description": "<p>Python4Capella allows you to interact with your Capella model using Python. You will be able to create Python scripts to read and write from/to your Capella model.</p>",
+      "download": { 
+        "updateSite": "https://github.com/labs4capella/python4capella/releases",
+        "installAddon": "https://github.com/labs4capella/python4capella"
+      },
+      "tags":["scripting","import","export"]
     },
     { "name":"Capella-TASTE-Plugin",
       "key":"TASTE",
@@ -371,19 +394,6 @@
         "installAddon": "https://github.com/n7space/Capella-TASTE-Plugin"
       },
       "tags":["export", "bridge"]
-    },
-    { "name":"Python4Capella",
-      "isLabs": true,
-      "key":"PYTHON",
-      "licence":"EPL",
-      "compatibleWithCurrentVersion": true,
-      "contact":"<a href='industry-consortium/thales.html' target='_blank'>Thales</a> &amp; <a href='https://www.obeosoft.com/contact' target='_blank'>Obeo</a>",
-      "description": "<p>Python4Capella allows you to interact with your Capella model using Python. You will be able to create Python scripts to read and write from/to your Capella model.</p><p>This add-on is still a prototype hosted on <a href='https://labs4capella.github.io/'>Labs for Capella</a>",
-      "download": { 
-        "updateSite": "https://github.com/labs4capella/python4capella/releases",
-        "installAddon": "https://github.com/labs4capella/python4capella"
-      },
-      "tags":["scripting","import","export"]
     }
   ] 
 }
